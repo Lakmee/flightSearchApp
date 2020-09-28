@@ -1,0 +1,218 @@
+/* Global styles */
+
+//including variables and mixins
+
+@import "assets/styles/variables";
+@import "assets/styles/mixins";
+
+//@import "assets/styles/date-picker";
+
+//elements
+
+body {
+	margin: 0;
+	font: {
+		family: $font-family-default;
+		size: $font-size-base * 0.9;
+		weight: $font-weight-normal;
+		style: normal;
+	}
+	line-height: $line-height-normal;
+	text-align: center;
+	color: $off-black;
+	background-color: $white;
+}
+
+h1 {
+	@include heading($h1-font-size, $font-weight-light);
+}
+
+h2 {
+	@include heading($h2-font-size, $font-weight-light);
+}
+
+h3 {
+	@include heading($h3-font-size, $font-weight-bold);
+}
+
+h4 {
+	@include heading($h4-font-size, $font-weight-bold);
+}
+
+p {
+	margin: 0;
+}
+
+/* Form Elements */
+
+/* button */ 
+
+.btn {
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	margin-top: $extra-small-space;
+	padding: $small-space $extra-large-space;
+	@include thin-border(transparent);
+	border-radius: $border-radius-normal;
+	box-shadow: $box-shadow-normal;
+	font-size: $font-size-base;
+	font-family: $font-family-default;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	transition: $normal-transition;
+	color: $white;
+	background-color: $primery-color;
+	
+	&:focus, &:hover {
+		outline: 0;
+		box-shadow: $box-shadow-spread;
+		transform: translateY(-3px);
+		text-decoration: none;
+		opacity: 1;
+	}
+
+	&:active {
+		outline: 0;
+		box-shadow: none!important;
+		transform: translateY(5px)!important;
+		transition: $normal-transition;
+		background:  $dark-orange;
+	}
+}
+
+//Text input
+
+.input-group {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	height: 60px;
+	border-radius: $border-radius-normal;
+	box-shadow: $box-shadow-normal;
+	transition: $normal-transition;
+	background-color: $light-grey;
+
+	&:hover, &:focus {
+		background-color: $white;
+	}
+
+	.icon-container {
+		width: 80px;
+		border-radius: $border-radius-normal 0 0 $border-radius-normal;
+		background-color: $grey;
+		img {
+			margin-top: 15px;
+			max-width: 32px;
+			max-height: 32px;
+		} 
+	}
+
+	.input-container {
+		width: 100%;
+		padding: $small-space 0;
+
+		label {
+			display: block;
+			font-size: $font-size-small;
+			font-weight: $font-weight-bold;
+			color: $off-black;
+		}
+
+		input[type="text"] {
+			width: 100%;
+			border: 0;
+			padding: 0;
+
+			font: {
+				family: $font-family-default;
+				size: $font-size-base;
+			}
+
+			text-align: center;
+			text-transform: uppercase;
+			color: $off-black;
+			background: transparent;
+
+			&:hover, &:focus {
+				box-shadow: none;
+				outline: 0;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+::placeholder {
+	color: $grey;
+}
+
+
+/* checkbox */
+
+
+input[type=checkbox] {
+	display: none;
+
+	+ label {
+		display: block;
+		margin: 0.1875rem;
+		padding: 0.1875rem;
+		cursor: pointer;
+
+		&:before {
+			content: "\2714";
+			display: inline-block;
+			width: 0.875rem;
+			height: 0.875rem;
+			margin-right: $extra-small-space;
+			padding-left: $extra-small-space;
+			padding-bottom: $extra-small-space;
+			@include think-border($grey);
+			border-radius: $border-radius-normal;
+			vertical-align: bottom;
+			color: transparent;
+			transition: $normal-transition;
+		}
+
+		&:active:before {
+			transform: scale(0);
+		}
+	}
+
+	&:checked {
+		+ label:before {
+			border-color: $primery-color;
+			color: $white;
+			background-color: $primery-color;
+		}
+	}
+
+	&:disabled {
+		+ label:before {
+			transform: scale(1);
+			border-color: $light-grey;
+		}
+	}
+
+	&:checked:disabled {
+		+ label:before {
+			transform: scale(1);
+			border-color: #grey;
+			background-color: $grey;
+		}
+	}
+}
+
+// Date picker
+
+dp-day-calendar.dp-material .dp-selected {
+	background: $primery-color !important;
+}
+dp-day-calendar.dp-material .dp-current-day {
+    border: 1px solid $primery-color !important;
+}
+dp-day-calendar .dp-weekdays {
+	font-size: 12px !important;
+}

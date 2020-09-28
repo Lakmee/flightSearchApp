@@ -1,0 +1,16 @@
+<div class="select-box">
+	<div>
+		<span><img src="../../../assets/images/filter.png" alt=""></span>
+		<span>{{title}}</span>
+	</div>
+	<ul>
+	  <li *ngFor="let item of items">
+	    <input (click)="handleChange(item, $event)"
+	           type="checkbox"
+	           [id]="item.id"
+	           [name]="item.name || item.id"
+	           [value]="item.label">
+	    <label [for]="item.id">{{item.label}}</label>
+	  </li>
+	</ul>
+</div>

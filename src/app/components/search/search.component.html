@@ -1,0 +1,109 @@
+<div id="search-container">
+
+  <h1>Flight Search</h1>
+
+  <div id="search-box">
+
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit();" (reset)="onReset()">
+
+      <p class="error-msg-top" *ngIf="isSubmitted && searchForm.invalid">
+        The form could not be submitted. Please fix the errors below and submit again. 
+      </p>
+
+      <div id="search-grid-container">
+        <div>
+          <div class="input-group">
+            <div class="icon-container">
+              <img src="../../../assets/images/plane-departing.png" alt="">
+            </div>
+            <div class="input-container">
+              <label class="text-input-label" for="departure-airport-code">Departure Airport Code</label>
+              <input formControlName="departureAirportCode"
+                     type="text"
+                     name="departure-airport-code"
+                     id="departure-airport-code"
+                     pattern="[A-Za-z0-9]{3}"
+                     title="Code of 03 letters and/or numbers"
+                     maxlength="3"
+                     placeholder="MEL"
+                     autocomplete="off" required>
+            </div>
+          </div>
+          <span class="error-msg" *ngIf="isSubmitted &&  searchForm.controls.departureAirportCode.invalid">
+            {{getCodeErrors(searchForm.controls.departureAirportCode.errors)}} &nbsp;
+          </span>
+        </div>
+
+        <div>
+          <div class="input-group">
+            <div class="icon-container">
+              <img src="../../../assets/images/plane-arriving.png" alt="">
+            </div>
+            <div class="input-container">
+              <label class="text-input-label" for="arrival-airport-code">Arrival Airport Code</label>
+              <input formControlName="arrivalAirportCode"
+                     type="text"
+                     name="arrival-airport-code"
+                     id="arrival-airport-code"
+                     pattern="[A-Za-z0-9]{3}"
+                     title="Code of 03 letters and/or numbers"
+                     maxlength="3"
+                     placeholder="KLR"
+                     autocomplete="off" required>
+            </div>
+          </div>
+          <span class="error-msg" *ngIf="isSubmitted && searchForm.controls.arrivalAirportCode.invalid">
+            {{getCodeErrors(searchForm.controls.arrivalAirportCode.errors)}}
+          </span>
+        </div>
+
+        <div>
+          <div class="input-group">
+            <div class="icon-container">
+              <img src="../../../assets/images/calendar.png" alt="">
+            </div>
+            <div class="input-container">
+              <label class="text-input-label" for="departure-date">Departure Date</label>
+              <dp-date-picker formControlName="departureDate"
+                              id="departure-date"
+                              mode="day"
+                              theme="dp-material dp-main"
+                              placeholder="dd-mm-yyyy"
+                              [config]="dateConfig"></dp-date-picker>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="input-group">
+            <div class="icon-container">
+              <img src="../../../assets/images/calendar.png" alt="">
+            </div>
+            <div class="input-container">
+              <label class="text-input-label" for="arrival-date">Arrival Date</label>
+              <dp-date-picker formControlName="arrivalDate"
+                              id="arrival-date"
+                              mode="day"
+                              theme="dp-material dp-main"
+                              placeholder="dd-mm-yyyy"
+                              disableKeypress="true"
+                              [config]="dateConfig"></dp-date-picker>
+            </div>
+          </div>
+          <span class="error-msg" *ngIf="searchForm.invalid && searchForm.errors && searchForm.errors.message">
+            {{searchForm.errors.message}}
+          </span>
+        </div>
+
+      </div>
+
+      <div>
+        <!-- <input class="button" type="reset" value="Reset"> -->
+        <input class="btn" type="submit" value="Submit">
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

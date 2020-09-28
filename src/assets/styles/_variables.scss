@@ -1,0 +1,73 @@
+/* variables */
+
+
+//Colors
+
+$orange: #ff6d00;
+$dark-orange: #c43c00;
+$light-orange: #ff9e40;
+
+$red: #e53935;
+$green: #4caf50;
+
+$grey: #adadad;
+$dark-grey: #323232;
+$light-grey: #e8e9ed;
+
+$black: #000000;
+$off-black: #09171f;
+
+$white: #ffffff;
+$off-white: #F5F8fc;
+
+$primery-color: $orange;
+$text-color: $off-black;
+
+
+//Spacing
+
+$extra-small-space: 5px;
+$small-space: 10px;
+$medium-space: 15px;
+$large-space: 20px;
+$extra-large-space: 30px;
+
+
+//fonts
+
+$font-family-default: 'Open Sans','Helvetica','Verdana',sans-serif;
+
+$font-size-base: 1rem;
+$font-size-small: $font-size-base * 0.75;
+$font-size-medium: $font-size-base * 0.9;
+$font-size-large: $font-size-base * 1.25;
+
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 0.9;
+$h4-font-size: $font-size-base * 0.8;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+
+$font-weight-light: 200;
+$font-weight-normal: 400;
+$font-weight-bold: 600;
+
+$line-height-normal: 1.5;
+
+//border-radius
+
+$border-radius-normal: 5px;
+
+
+//box-shadow
+
+$box-shadow-normal: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12); 
+$box-shadow-spread: 2px 2px 10px rgba(0,0,0,.4);
+
+
+//transition
+
+$slow-transition: 0.4s ease all; 
+$normal-transition: 0.3s ease all; 
+$speed-transition: 0.2s ease all; 

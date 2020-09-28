@@ -1,0 +1,15 @@
+<div id="component-container">
+	<!--header -->
+	<app-header></app-header>
+
+	<div id="flight-search-container">
+		<app-search (search)="onSearch($event)"></app-search>
+
+		<div *ngIf="flights$ | async as flights">
+		  <app-flights-panel [flights]="flights" [searchQuery]="searchQuery"></app-flights-panel>
+		</div>
+	</div>
+
+	<!-- footer -->
+	<app-footer></app-footer>
+</div>

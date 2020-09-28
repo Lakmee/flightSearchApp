@@ -1,0 +1,71 @@
+@import "../../../assets/styles/variables";
+
+#flight-panel-container {
+    padding: $large-space 0;
+    background: $off-white linear-gradient(.45deg, rgba(245,248,252,1) 37%, rgba(255,255,255,1) 100%);
+}
+
+#filter-container {
+  padding: $large-space;
+  h2 {
+    margin-bottom: $medium-space;
+  }
+}
+
+#flight-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  margin: $medium-space;
+
+  div {
+    div {
+      margin: $small-space;
+      background: $white;
+      border-radius: $border-radius-normal;
+      box-shadow: $box-shadow-normal;
+
+      img {
+        max-width: 40px;
+        max-height: 25px;
+        padding-top: $medium-space;
+      }
+
+      div {
+        display: grid;
+        grid-template-columns: auto auto;
+        box-shadow: none;
+
+        p {
+          span {
+            font-size: $font-size-small;
+            text-transform: uppercase;
+          }
+        }
+
+        p:first-child {
+          border-right: 1px solid #adadad;
+        }
+      }
+
+      + p:last-child {
+        margin: 0;
+        padding: $medium-space;
+        font: {
+          size: $font-size-base;
+          weight: $font-weight-bold;
+        }
+        background-color: $light-grey;
+      }
+    }
+  }
+}
+
+// pagination
+
+.pagination-container {
+  margin: $large-space 0;
+}
+
+.pagination::ng-deep .ngx-pagination .current {
+  background-color: $primery-color;
+}

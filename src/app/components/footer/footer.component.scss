@@ -1,0 +1,10 @@
+@import "../../../assets/styles/variables"; 
+
+footer {
+  	padding: $extra-small-space 0;
+  	color:  $white;
+  	background: $dark-grey;
+  	p {
+  		font-size: $font-size-base * 0.8;
+  	}
+}

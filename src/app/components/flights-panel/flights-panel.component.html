@@ -1,0 +1,38 @@
+<div id="flight-panel-container">
+  <!-- Filter -->
+  <div id="filter-container">
+    <h2>Available Flights</h2>
+    <app-select-box (selectChange)="handleAirlineChange($event)" [items]="airlines"
+    title="Filter by Airline"></app-select-box>
+  </div>
+
+  <!-- Search Result -->
+  <div id="flight-grid-container">
+    <div *ngFor="let flight of filteredFlights | paginate: { itemsPerPage: 12, currentPage: currentPage }">
+      <div>
+        <img src="{{ flight.AirlineLogoAddress }}" alt="logo of {{ flight.AirlineName }}">
+        <h3>{{ flight.AirlineName }}</h3>
+        <div>
+          <p>
+            <span>{{searchQuery.departureAirportCode}}-{{searchQuery.arrivalAirportCode}}</span><br>
+            {{ flight.InboundFlightsDuration }} hours
+          </p>
+          <p>
+            <span>{{searchQuery.arrivalAirportCode}}-{{searchQuery.departureAirportCode}}</span><br>
+            {{ flight.OutboundFlightsDuration }} hours
+          </p>
+        </div>
+        <p>USD {{ flight.TotalAmount }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- pagination -->
+  <div class="pagination-container">
+    <div *ngIf="flights">
+      <pagination-controls class="pagination"
+      (pageChange)="currentPage = $event"></pagination-controls>
+    </div>
+  </div>
+
+</div>

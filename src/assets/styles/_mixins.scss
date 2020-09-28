@@ -1,0 +1,44 @@
+/* mixins */
+
+@import "variables";
+
+@mixin heading($font-size, $font-weight) {
+	margin: 0;
+	padding: 0;
+	font: {
+	 	size: $font-size;
+	 	weight: $font-weight;
+	 	style: normal;
+	}
+}
+
+@mixin thin-border($color) {
+	border: 1px solid $color;
+}
+
+@mixin think-border($color) {
+	border: 2px solid $color;
+}
+
+@mixin border-radius($side, $radius) {
+  	@if $side == top {
+    	border-top-left-radius: $radius;
+    	border-top-right-radius: $radius;  
+  	}
+  	@else if $side == right {
+    	border-top-right-radius: $radius;
+    	border-bottom-right-radius: $radius; 
+  	} 
+  	@else if $side == bottom {
+    	border-bottom-left-radius: $radius;
+    	border-bottom-right-radius: $radius; 
+  	} 
+  	@else if $side == left {
+    	border-top-left-radius: $radius;
+    	border-bottom-left-radius: $radius;  
+  	} 
+  	@else {
+    	border-radius: $radius;
+  	}
+}
+

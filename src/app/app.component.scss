@@ -1,0 +1,10 @@
+#component-container {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+#flight-search-container {
+	flex: 1;
+	background: linear-gradient(.45deg, rgba(245,248,252,1) 37%, rgba(255,255,255,1) 100%);
+}
